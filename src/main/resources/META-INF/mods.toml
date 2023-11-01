@@ -29,3 +29,10 @@ mandatory = true
 versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
+
+[[dependencies.${ mod_id }]]
+modId = "irons_spellbooks"
+mandatory = true
+versionRange = "[1.19.2-2.0.3,)"
+ordering = "NONE"
+side = "BOTH"

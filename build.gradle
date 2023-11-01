@@ -60,18 +60,14 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    // maven {
-    //     url "https://cursemaven.com"
-    //     content {
-    //         includeGroup "curse.maven"
-    //     }
-    // }
-    // maven {
-    //     url = "https://api.modrinth.com/maven"
-    //     content {
-    //         includeGroup "maven.modrinth"
-    //     }
-    // }
+    // Irons Spells
+    maven { url "https://code.redspace.io/releases" }
+    // Caelus, Curios
+    maven { url = "https://maven.theillusivec4.top" }
+    // Geckolib
+    maven { url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven" }
+    // playerAnimator
+    maven { url = "https://maven.kosmx.dev" }
 }
 
 dependencies {
@@ -79,6 +75,11 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     // Dependencies here. The version of each mod dependency should be defined by a variable in gradle.properties
+    implementation fg.deobf("io.redspace.ironsspellbooks:irons_spellbooks:${irons_spells_version}")
+    runtimeOnly fg.deobf("top.theillusivec4.caelus:caelus-forge:${caelus_version}")
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
+    runtimeOnly fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_version}")
+    runtimeOnly fg.deobf("dev.kosmx.player-anim:player-animation-lib-forge:${player_animator_version}")
 }
 
 mixin {

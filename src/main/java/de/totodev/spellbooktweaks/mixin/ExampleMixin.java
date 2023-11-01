@@ -1,4 +1,4 @@
-package com.example.examplemod.mixin;
+package de.totodev.spellbooktweaks.mixin;
 
 import net.minecraft.client.Minecraft;
 import org.slf4j.Logger;
