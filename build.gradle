@@ -85,9 +85,6 @@ dependencies {
 mixin {
     config 'mixins.spellbooktweaks.json'
 
-    // Refmaps for each SourceSet
-    add sourceSets.main, 'spellbooktweaks.refmap.json'
-
     // Options for the Annotation Processor
     quiet
 }

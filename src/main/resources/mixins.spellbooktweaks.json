@@ -1,9 +1,12 @@
 {
   "required": true,
+  "minVersion": "0.8",
   "package": "de.totodev.spellbooktweaks.mixin",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "examplemod.refmap.json",
   "mixins": [
+    "ClientboundSyncManaMixin",
+    "MagicDataMixin",
+    "MagicManagerMixin",
     "ManaBarOverlayMixin"
   ],
   "client": [

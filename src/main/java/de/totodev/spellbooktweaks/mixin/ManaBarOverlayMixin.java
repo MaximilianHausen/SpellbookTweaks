@@ -2,6 +2,7 @@ package de.totodev.spellbooktweaks.mixin;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import de.totodev.spellbooktweaks.ClientReserveManaData;
 import de.totodev.spellbooktweaks.SpellbookTweaksMod;
 import io.redspace.ironsspellbooks.config.ClientConfigs;
 import io.redspace.ironsspellbooks.gui.overlays.ManaBarOverlay;
@@ -14,6 +15,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.client.gui.overlay.ForgeGui;
 import org.spongepowered.asm.mixin.*;
 
+import static de.totodev.spellbooktweaks.AttributeRegistry.MAX_RESERVE_MANA;
 import static io.redspace.ironsspellbooks.api.registry.AttributeRegistry.MAX_MANA;
 
 @Mixin(ManaBarOverlay.class)
@@ -26,7 +28,7 @@ public abstract class ManaBarOverlayMixin {
     private static final int IMAGE_WIDTH = 170;
     @Final
     @Shadow(remap = false)
-    static int IMAGE_HEIGHT = 20;
+    static final int IMAGE_HEIGHT = 20;
     @Unique
     private static final int MAX_BAR_WIDTH = 75;
     @Unique
@@ -70,9 +72,8 @@ public abstract class ManaBarOverlayMixin {
 
         int maxActiveMana = (int) player.getAttributeValue(MAX_MANA.get());
         int activeMana = ClientMagicData.getPlayerMana();
-        //TODO: Query reserve mana in UI
-        int maxReserveMana = maxActiveMana;
-        int reserveMana = activeMana;
+        int maxReserveMana = (int) player.getAttributeValue(MAX_RESERVE_MANA.get());
+        int reserveMana = ClientReserveManaData.getReserveMana();
 
         int configOffsetY = ClientConfigs.MANA_BAR_Y_OFFSET.get();
         int configOffsetX = ClientConfigs.MANA_BAR_X_OFFSET.get();
