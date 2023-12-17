@@ -21,7 +21,7 @@ public class ClientboundSyncManaMixin {
 
     @Inject(
             method = "<init>(Lnet/minecraft/network/FriendlyByteBuf;)V",
-            at = @At(value = "RETURN"),
+            at = @At("RETURN"),
             remap = false
     )
     void constructor(FriendlyByteBuf buf, CallbackInfo ci) {
@@ -39,7 +39,7 @@ public class ClientboundSyncManaMixin {
 
     @Inject(
             method = "lambda$handle$0",
-            at = @At(value = "RETURN"),
+            at = @At("RETURN"),
             remap = false
     )
     public void handle(CallbackInfo ci) {

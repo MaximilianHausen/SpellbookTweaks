@@ -3,11 +3,15 @@ package de.totodev.spellbooktweaks.mixin;
 import de.totodev.spellbooktweaks.ChangeReserveManaEvent;
 import de.totodev.spellbooktweaks.IReserveManaData;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.common.MinecraftForge;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MagicData.class)
 public class MagicDataMixin implements IReserveManaData {
@@ -33,5 +37,23 @@ public class MagicDataMixin implements IReserveManaData {
     @Unique
     public void spellbookTweaks$addReserveMana(float mana) {
         spellbookTweaks$setReserveMana(this.spellbookTweaks$reserveMana + mana);
+    }
+
+    @Inject(
+            method = "saveNBTData",
+            at = @At("HEAD"),
+            remap = false
+    )
+    public void saveNBTData(CompoundTag compound, CallbackInfo ci) {
+        compound.putInt("reserveMana", (int) this.spellbookTweaks$reserveMana);
+    }
+
+    @Inject(
+            method = "loadNBTData",
+            at = @At("HEAD"),
+            remap = false
+    )
+    public void loadNBTData(CompoundTag compound, CallbackInfo ci) {
+        this.spellbookTweaks$reserveMana = (float) compound.getInt("reserveMana");
     }
 }
