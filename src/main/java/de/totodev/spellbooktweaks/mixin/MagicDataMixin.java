@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MagicData.class)
-public class MagicDataMixin implements IReserveManaData {
+public abstract class MagicDataMixin implements IReserveManaData {
     @Unique
     private float spellbookTweaks$reserveMana;
     @Shadow(remap = false)

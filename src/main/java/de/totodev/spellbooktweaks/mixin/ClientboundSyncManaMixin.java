@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ClientboundSyncMana.class)
-public class ClientboundSyncManaMixin {
+public abstract class ClientboundSyncManaMixin {
     @Unique
     private int spellbookTweaks$playerReserveMana = 0;
     @Shadow(remap = false)

@@ -13,7 +13,7 @@ import static io.redspace.ironsspellbooks.api.registry.AttributeRegistry.MANA_RE
 import static io.redspace.ironsspellbooks.api.registry.AttributeRegistry.MAX_MANA;
 
 @Mixin(MagicManager.class)
-public class MagicManagerMixin {
+public abstract class MagicManagerMixin {
     /**
      * @author SpellbookTweaks
      * @reason Completely replaces mana regeneration to implement reserve mana

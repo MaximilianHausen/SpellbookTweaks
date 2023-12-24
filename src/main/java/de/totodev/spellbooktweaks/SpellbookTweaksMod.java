@@ -18,15 +18,17 @@ public class SpellbookTweaksMod {
     public SpellbookTweaksMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         AttributeRegistry.register(modEventBus);
-        modEventBus.addListener((EntityAttributeModificationEvent event) -> {
-            try {
-                // fieldName = "defaultValue"
-                Field f = ObfuscationReflectionHelper.findField(Attribute.class, "f_22076_");
-                f.setAccessible(true);
-                f.set(MANA_REGEN.get(), 3);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            }
-        });
+
+        modEventBus.addListener(SpellbookTweaksMod::onAttributeModification);
+    }
+
+    private static void onAttributeModification(EntityAttributeModificationEvent event) {
+        try {
+            // fieldName = "defaultValue"
+            Field f = ObfuscationReflectionHelper.findField(Attribute.class, "f_22076_");
+            f.set(MANA_REGEN.get(), 3);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
