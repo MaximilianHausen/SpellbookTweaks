@@ -53,6 +53,8 @@ public abstract class ManaBarOverlayMixin {
     @Final
     @Shadow(remap = false)
     static int ICON_ROW_HEIGHT;
+    @Unique
+    private static final int ARMOR_ROW_HEIGHT = 8;
     @Final
     @Shadow(remap = false)
     static int HOTBAR_HEIGHT;
@@ -75,10 +77,11 @@ public abstract class ManaBarOverlayMixin {
         int maxReserveMana = (int) player.getAttributeValue(MAX_RESERVE_MANA.get());
         int reserveMana = ClientReserveManaData.getReserveMana();
 
-        int configOffsetY = ClientConfigs.MANA_BAR_Y_OFFSET.get();
+        boolean hasArmorRow = gui.getMinecraft().player.getArmorValue() > 0 && !gui.getMinecraft().player.isCreative();
         int configOffsetX = ClientConfigs.MANA_BAR_X_OFFSET.get();
+        int configOffsetY = ClientConfigs.MANA_BAR_Y_OFFSET.get();
         int barPosX = screenWidth / 2 - IMAGE_WIDTH / 2 + configOffsetX;
-        int barPosY = screenHeight - HOTBAR_HEIGHT - (int) (ICON_ROW_HEIGHT * 2.5f) - IMAGE_HEIGHT / 2 - configOffsetY;
+        int barPosY = screenHeight - HOTBAR_HEIGHT - (int) (ICON_ROW_HEIGHT * 2.5f) - IMAGE_HEIGHT / 2 - configOffsetY - (hasArmorRow ? ARMOR_ROW_HEIGHT : 0);
 
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
