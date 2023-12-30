@@ -1,0 +1,14 @@
+{
+  "attribute.spellbooktewaks.max_reserve_mana":  "Max Reserve Mana",
+  "attribute.spellbooktewaks.reserve_mana_regen":  "Reserve Mana Regeneration",
+  "attribute.spellbooktweaks.spell_proficiency":  "Spell Proficiency",
+  "attribute.spellbooktweaks.fire_school_proficiency": "Fire Proficiency",
+  "attribute.spellbooktweaks.ice_school_proficiency": "Ice Proficiency",
+  "attribute.spellbooktweaks.lightning_school_proficiency": "Lightning Proficiency",
+  "attribute.spellbooktweaks.holy_school_proficiency": "Holy Proficiency",
+  "attribute.spellbooktweaks.ender_school_proficiency": "Ender Proficiency",
+  "attribute.spellbooktweaks.blood_school_proficiency": "Blood Proficiency",
+  "attribute.spellbooktweaks.evocation_school_proficiency": "Evocation Proficiency",
+  "attribute.spellbooktweaks.nature_school_proficiency": "Nature Proficiency",
+  "ui.spellbooktweaks.cast_error_rarity": "Not enough %s proficiency to cast %s (%s/%s)"
+}
