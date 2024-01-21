@@ -18,6 +18,17 @@ public class AttributeRegistryMixin {
     @ModifyArg(
             method = "<clinit>",
             at = @At(value = "INVOKE", ordinal = 0, target = "Lnet/minecraftforge/registries/DeferredRegister;register(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/registries/RegistryObject;"),
+            slice = @Slice(from = @At(value = "FIELD", target = "Lio/redspace/ironsspellbooks/api/registry/AttributeRegistry;MAX_MANA:Lnet/minecraftforge/registries/RegistryObject;", shift = At.Shift.BY, by = -1)),
+            index = 1,
+            remap = false
+    )
+    private static Supplier<Attribute> maxMana(Supplier<RangedAttribute> sup) {
+        return () -> new RangedAttribute("attribute.irons_spellbooks.max_mana", 60.0D, 0.0D, 100.0D).setSyncable(true);
+    }
+
+    @ModifyArg(
+            method = "<clinit>",
+            at = @At(value = "INVOKE", ordinal = 0, target = "Lnet/minecraftforge/registries/DeferredRegister;register(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/registries/RegistryObject;"),
             slice = @Slice(from = @At(value = "FIELD", target = "Lio/redspace/ironsspellbooks/api/registry/AttributeRegistry;MANA_REGEN:Lnet/minecraftforge/registries/RegistryObject;", shift = At.Shift.BY, by = -1)),
             index = 1,
             remap = false

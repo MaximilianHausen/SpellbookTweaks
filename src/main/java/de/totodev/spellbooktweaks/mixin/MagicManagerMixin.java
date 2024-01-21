@@ -30,6 +30,15 @@ public abstract class MagicManagerMixin {
         int maxReserveMana = (int) serverPlayer.getAttributeValue(MAX_RESERVE_MANA.get());
         float reserveManaRegen = (float) serverPlayer.getAttributeValue(RESERVE_MANA_REGEN.get());
 
+        if (mana > maxMana) {
+            magicData.setMana(maxMana);
+            mana = maxMana;
+        }
+        if (reserveMana > maxReserveMana) {
+            reserveManaData.spellbookTweaks$setReserveMana(maxReserveMana);
+            reserveMana = maxReserveMana;
+        }
+
         // Regen reserve
         if (reserveMana < maxReserveMana) {
             if (reserveMana + reserveManaRegen < maxReserveMana) {
@@ -50,5 +59,7 @@ public abstract class MagicManagerMixin {
                 reserveManaData.spellbookTweaks$addReserveMana(-manaRegen);
             }
         }
+
+        System.out.println("Active: " + mana + ", Reserve: " + reserveMana);
     }
 }

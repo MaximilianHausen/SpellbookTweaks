@@ -1,4 +1,4 @@
-# Spellbook Tweaks (Forge 1.19.2)
+# Spellbook Tweaks (Forge 1.20.1)
 
 Some tweaks to [Iron's Spells and Spellbooks](https://modrinth.com/mod/irons-spells-n-spellbooks), such as replacing the mana system with one inspired by Fundamental Forces.
 

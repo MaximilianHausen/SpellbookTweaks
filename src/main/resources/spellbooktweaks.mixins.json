@@ -3,6 +3,7 @@
   "minVersion": "0.8",
   "package": "de.totodev.spellbooktweaks.mixin",
   "compatibilityLevel": "JAVA_17",
+  "refmap": "spellbooktweaks.refmap.json",
   "mixins": [
     "AbstractSpellMixin",
     "AttributeRegistryMixin",
