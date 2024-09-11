@@ -6,13 +6,8 @@
   "refmap": "spellbooktweaks.refmap.json",
   "mixins": [
     "AbstractSpellMixin",
-    "AttributeRegistryMixin",
-    "ClientboundSyncManaMixin",
     "ExtendedArmorMaterialsMixin",
-    "ItemRegistryMixin",
-    "MagicDataMixin",
     "MagicManagerMixin",
-    "ManaBarOverlayMixin",
     "UpgradeTypesMixin"
   ],
   "client": [

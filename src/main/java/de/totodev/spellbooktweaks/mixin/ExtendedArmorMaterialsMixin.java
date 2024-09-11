@@ -28,10 +28,12 @@ public class ExtendedArmorMaterialsMixin {
     @Coerce
     private static <K, V> Map<Attribute, AttributeModifier> tarnished(K k1, V v1, K k2, V v2, K k3, V v3) {
         return Map.of(
-                de.totodev.spellbooktweaks.AttributeRegistry.MAX_RESERVE_MANA.get(),
-                new AttributeModifier("Max Reserve Mana", 100.0, AttributeModifier.Operation.ADDITION),
-                de.totodev.spellbooktweaks.AttributeRegistry.RESERVE_MANA_REGEN.get(),
-                new AttributeModifier("Reserve Mana Regen", 0.25, AttributeModifier.Operation.MULTIPLY_BASE),
+                de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
+                new AttributeModifier("Spell Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                AttributeRegistry.MAX_MANA.get(),
+                new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION),
+                AttributeRegistry.MANA_REGEN.get(),
+                new AttributeModifier("Mana Regen", 0.25, AttributeModifier.Operation.MULTIPLY_TOTAL),
                 Attributes.ATTACK_DAMAGE,
                 new AttributeModifier("minus damage", -0.15, AttributeModifier.Operation.MULTIPLY_TOTAL)
         );
@@ -48,8 +50,8 @@ public class ExtendedArmorMaterialsMixin {
         return Map.of(
                 de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
                 new AttributeModifier("Spell Proficiency", 0.25, AttributeModifier.Operation.ADDITION),
-                AttributeRegistry.MANA_REGEN.get(),
-                new AttributeModifier("Mana Regen", 0.25, AttributeModifier.Operation.ADDITION)
+                AttributeRegistry.MAX_MANA.get(),
+                new AttributeModifier("Max Mana", 25.0, AttributeModifier.Operation.ADDITION)
         );
     }
 
@@ -65,7 +67,7 @@ public class ExtendedArmorMaterialsMixin {
                 de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
                 new AttributeModifier("Spell Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
-                new AttributeModifier("Max Mana", 5.0, AttributeModifier.Operation.ADDITION)
+                new AttributeModifier("Max Mana", 50.0, AttributeModifier.Operation.ADDITION)
         );
     }
 
@@ -84,7 +86,7 @@ public class ExtendedArmorMaterialsMixin {
                 de.totodev.spellbooktweaks.AttributeRegistry.FIRE_SCHOOL_PROFICIENCY.get(),
                 new AttributeModifier("Fire Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
-                new AttributeModifier("Max Mana", 10.0, AttributeModifier.Operation.ADDITION)
+                new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
     }
 
@@ -102,7 +104,7 @@ public class ExtendedArmorMaterialsMixin {
                 de.totodev.spellbooktweaks.AttributeRegistry.EVOCATION_SCHOOL_PROFICIENCY.get(),
                 new AttributeModifier("Evocation Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
-                new AttributeModifier("Max Mana", 10.0, AttributeModifier.Operation.ADDITION)
+                new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
     }
 
@@ -120,7 +122,7 @@ public class ExtendedArmorMaterialsMixin {
                 de.totodev.spellbooktweaks.AttributeRegistry.BLOOD_SCHOOL_PROFICIENCY.get(),
                 new AttributeModifier("Blood Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
-                new AttributeModifier("Max Mana", 10.0, AttributeModifier.Operation.ADDITION)
+                new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
     }
 
@@ -138,7 +140,7 @@ public class ExtendedArmorMaterialsMixin {
                 de.totodev.spellbooktweaks.AttributeRegistry.HOLY_SCHOOL_PROFICIENCY.get(),
                 new AttributeModifier("Holy Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
-                new AttributeModifier("Max Mana", 10.0, AttributeModifier.Operation.ADDITION)
+                new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
     }
 
@@ -156,7 +158,7 @@ public class ExtendedArmorMaterialsMixin {
                 de.totodev.spellbooktweaks.AttributeRegistry.ICE_SCHOOL_PROFICIENCY.get(),
                 new AttributeModifier("Ice Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
-                new AttributeModifier("Max Mana", 10.0, AttributeModifier.Operation.ADDITION)
+                new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
     }
 
@@ -174,7 +176,7 @@ public class ExtendedArmorMaterialsMixin {
                 de.totodev.spellbooktweaks.AttributeRegistry.ENDER_SCHOOL_PROFICIENCY.get(),
                 new AttributeModifier("Ender Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
-                new AttributeModifier("Max Mana", 10.0, AttributeModifier.Operation.ADDITION)
+                new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
     }
 
@@ -192,7 +194,7 @@ public class ExtendedArmorMaterialsMixin {
                 de.totodev.spellbooktweaks.AttributeRegistry.NATURE_SCHOOL_PROFICIENCY.get(),
                 new AttributeModifier("Nature Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
-                new AttributeModifier("Max Mana", 10.0, AttributeModifier.Operation.ADDITION)
+                new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
     }
 
@@ -210,7 +212,7 @@ public class ExtendedArmorMaterialsMixin {
                 de.totodev.spellbooktweaks.AttributeRegistry.LIGHTNING_SCHOOL_PROFICIENCY.get(),
                 new AttributeModifier("Lightning Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
-                new AttributeModifier("Max Mana", 10.0, AttributeModifier.Operation.ADDITION)
+                new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
     }
 }

@@ -21,8 +21,6 @@ public class AttributeRegistry {
         ATTRIBUTES.register(eventBus);
     }
 
-    public static final RegistryObject<Attribute> MAX_RESERVE_MANA = ATTRIBUTES.register("max_reserve_mana", () -> (new RangedAttribute("attribute.spellbooktewaks.max_reserve_mana", 800.0D, 0.0D, 100000.0D).setSyncable(true)));
-    public static final RegistryObject<Attribute> RESERVE_MANA_REGEN = ATTRIBUTES.register("reserve_mana_regen", () -> (new RangedAttribute("attribute.spellbooktewaks.reserve_mana_regen", 1.0D, 0.0D, 100.0D).setSyncable(true)));
     public static final RegistryObject<Attribute> SPELL_PROFICIENCY = ATTRIBUTES.register("spell_proficiency", () -> new RangedAttribute("attribute.spellbooktweaks.spell_proficiency", 0.0, 0.0, 4.0).setSyncable(true));
     public static final RegistryObject<Attribute> FIRE_SCHOOL_PROFICIENCY = newSchoolProficiencyAttribute("fire");
     public static final RegistryObject<Attribute> ICE_SCHOOL_PROFICIENCY = newSchoolProficiencyAttribute("ice");
@@ -36,8 +34,6 @@ public class AttributeRegistry {
     @SubscribeEvent
     public static void modifyEntityAttributes(EntityAttributeModificationEvent e) {
         e.getTypes().forEach(entity -> {
-            e.add(entity, MAX_RESERVE_MANA.get());
-            e.add(entity, RESERVE_MANA_REGEN.get());
             e.add(entity, SPELL_PROFICIENCY.get());
             e.add(entity, FIRE_SCHOOL_PROFICIENCY.get());
             e.add(entity, ICE_SCHOOL_PROFICIENCY.get());
