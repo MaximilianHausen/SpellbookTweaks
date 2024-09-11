@@ -16,7 +16,7 @@ public class ClientReserveManaData {
     }
 
     public static int getReserveMana() {
-        return playerReserveManaData.spellbookTweaks$getReserveMana();
+        return (int) playerReserveManaData.spellbookTweaks$getReserveMana();
     }
 
     public static void setReserveMana(float mana) {

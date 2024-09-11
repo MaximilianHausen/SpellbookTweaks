@@ -4,6 +4,7 @@ import de.totodev.spellbooktweaks.IReserveManaData;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.capabilities.magic.MagicManager;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Mth;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
@@ -19,15 +20,15 @@ public abstract class MagicManagerMixin {
      * @reason Completely replaces mana regeneration to implement reserve mana
      */
     @Overwrite(remap = false)
-    public void regenPlayerMana(ServerPlayer serverPlayer, MagicData magicData) {
+    public boolean regenPlayerMana(ServerPlayer serverPlayer, MagicData magicData) {
         var reserveManaData = (IReserveManaData) magicData;
 
-        int mana = magicData.getMana();
-        int maxMana = (int) serverPlayer.getAttributeValue(MAX_MANA.get());
+        float mana = magicData.getMana();
+        float maxMana = (float) serverPlayer.getAttributeValue(MAX_MANA.get());
         float manaRegen = (float) serverPlayer.getAttributeValue(MANA_REGEN.get());
 
-        int reserveMana = reserveManaData.spellbookTweaks$getReserveMana();
-        int maxReserveMana = (int) serverPlayer.getAttributeValue(MAX_RESERVE_MANA.get());
+        float reserveMana = reserveManaData.spellbookTweaks$getReserveMana();
+        float maxReserveMana = (float) serverPlayer.getAttributeValue(MAX_RESERVE_MANA.get());
         float reserveManaRegen = (float) serverPlayer.getAttributeValue(RESERVE_MANA_REGEN.get());
 
         if (mana > maxMana) {
@@ -39,27 +40,21 @@ public abstract class MagicManagerMixin {
             reserveMana = maxReserveMana;
         }
 
+        boolean hasChanged = false;
+
         // Regen reserve
         if (reserveMana < maxReserveMana) {
-            if (reserveMana + reserveManaRegen < maxReserveMana) {
-                reserveManaData.spellbookTweaks$addReserveMana(reserveManaRegen);
-            } else {
-                reserveManaData.spellbookTweaks$setReserveMana(maxReserveMana);
-            }
+            reserveManaData.spellbookTweaks$setReserveMana(Mth.clamp(reserveMana + reserveManaRegen, 0.0F, maxReserveMana));
             reserveMana = reserveManaData.spellbookTweaks$getReserveMana();
+            hasChanged = true;
         }
 
         // Transfer
         if (mana < maxMana && reserveMana > manaRegen) {
-            if (mana + manaRegen < maxMana) {
-                magicData.addMana(manaRegen);
-                reserveManaData.spellbookTweaks$addReserveMana(-manaRegen);
-            } else {
-                magicData.setMana(maxMana);
-                reserveManaData.spellbookTweaks$addReserveMana(-manaRegen);
-            }
+            magicData.setMana(Mth.clamp(mana + manaRegen, 0.0F, maxMana));
+            hasChanged = true;
         }
 
-        System.out.println("Active: " + mana + ", Reserve: " + reserveMana);
+        return hasChanged;
     }
 }

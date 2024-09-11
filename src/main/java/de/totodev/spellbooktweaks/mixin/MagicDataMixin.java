@@ -21,7 +21,7 @@ public abstract class MagicDataMixin implements IReserveManaData {
     private ServerPlayer serverPlayer = null;
 
     @Unique
-    public int spellbookTweaks$getReserveMana() {
+    public float spellbookTweaks$getReserveMana() {
         return (int) spellbookTweaks$reserveMana;
     }
 

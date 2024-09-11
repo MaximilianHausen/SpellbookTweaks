@@ -15,38 +15,37 @@ import org.spongepowered.asm.mixin.injection.Slice;
 @Mixin(UpgradeTypes.class)
 public class UpgradeTypesMixin {
     // This would be much easier with @ModifyArgs, but that seems to be broken on Forge 1.17+ (https://github.com/SpongePowered/Mixin/issues/584)
-    // Why is the bytecode signature of this constructor so wierd?
 
     @ModifyArg(
             method = "<clinit>",
-            at = @At(value = "INVOKE", ordinal = 0, target = "Lio/redspace/ironsspellbooks/item/armor/UpgradeTypes;<init>(Ljava/lang/String;ILjava/lang/String;Lnet/minecraft/world/entity/ai/attributes/Attribute;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;F)V"),
+            at = @At(value = "INVOKE", ordinal = 0, target = "Lio/redspace/ironsspellbooks/item/armor/UpgradeTypes;<init>(Ljava/lang/String;ILjava/lang/String;Ljava/util/function/Supplier;Lnet/minecraft/world/entity/ai/attributes/Attribute;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;F)V"),
             slice = @Slice(from = @At(value = "FIELD", target = "Lio/redspace/ironsspellbooks/item/armor/UpgradeTypes;MANA:Lio/redspace/ironsspellbooks/item/armor/UpgradeTypes;", shift = At.Shift.BY, by = -1)),
-            index = 3,
+            index = 4,
             remap = false
     )
-    private static Attribute manaUpgrade3(Attribute par3) {
+    private static Attribute manaUpgrade4(Attribute par4) {
         return AttributeRegistry.MANA_REGEN.get();
     }
 
     @ModifyArg(
             method = "<clinit>",
-            at = @At(value = "INVOKE", ordinal = 0, target = "Lio/redspace/ironsspellbooks/item/armor/UpgradeTypes;<init>(Ljava/lang/String;ILjava/lang/String;Lnet/minecraft/world/entity/ai/attributes/Attribute;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;F)V"),
+            at = @At(value = "INVOKE", ordinal = 0, target = "Lio/redspace/ironsspellbooks/item/armor/UpgradeTypes;<init>(Ljava/lang/String;ILjava/lang/String;Ljava/util/function/Supplier;Lnet/minecraft/world/entity/ai/attributes/Attribute;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;F)V"),
             slice = @Slice(from = @At(value = "FIELD", target = "Lio/redspace/ironsspellbooks/item/armor/UpgradeTypes;MANA:Lio/redspace/ironsspellbooks/item/armor/UpgradeTypes;", shift = At.Shift.BY, by = -1)),
-            index = 4,
+            index = 5,
             remap = false
     )
-    private static AttributeModifier.Operation manaUpgrade4(AttributeModifier.Operation par4) {
+    private static AttributeModifier.Operation manaUpgrade5(AttributeModifier.Operation par5) {
         return AttributeModifier.Operation.ADDITION;
     }
 
     @ModifyArg(
             method = "<clinit>",
-            at = @At(value = "INVOKE", ordinal = 0, target = "Lio/redspace/ironsspellbooks/item/armor/UpgradeTypes;<init>(Ljava/lang/String;ILjava/lang/String;Lnet/minecraft/world/entity/ai/attributes/Attribute;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;F)V"),
+            at = @At(value = "INVOKE", ordinal = 0, target = "Lio/redspace/ironsspellbooks/item/armor/UpgradeTypes;<init>(Ljava/lang/String;ILjava/lang/String;Ljava/util/function/Supplier;Lnet/minecraft/world/entity/ai/attributes/Attribute;Lnet/minecraft/world/entity/ai/attributes/AttributeModifier$Operation;F)V"),
             slice = @Slice(from = @At(value = "FIELD", target = "Lio/redspace/ironsspellbooks/item/armor/UpgradeTypes;MANA:Lio/redspace/ironsspellbooks/item/armor/UpgradeTypes;", shift = At.Shift.BY, by = -1)),
-            index = 5,
+            index = 6,
             remap = false
     )
-    private static float manaUpgrade5(float par5) {
+    private static float manaUpgrade6(float par6) {
         return 0.5F;
     }
 }

@@ -34,7 +34,7 @@ public abstract class ClientboundSyncManaMixin {
             remap = false
     )
     public void toBytes(FriendlyByteBuf buf, CallbackInfo ci) {
-        buf.writeInt(((IReserveManaData) playerMagicData).spellbookTweaks$getReserveMana());
+        buf.writeInt((int) ((IReserveManaData) playerMagicData).spellbookTweaks$getReserveMana());
     }
 
     @Inject(

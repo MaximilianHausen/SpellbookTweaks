@@ -1,7 +1,7 @@
 package de.totodev.spellbooktweaks;
 
 public interface IReserveManaData {
-    int spellbookTweaks$getReserveMana();
+    float spellbookTweaks$getReserveMana();
 
     void spellbookTweaks$setReserveMana(float mana);
 
