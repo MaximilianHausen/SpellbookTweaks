@@ -6,6 +6,7 @@
   "refmap": "spellbooktweaks.refmap.json",
   "mixins": [
     "AbstractSpellMixin",
+    "AffinityRingMixin",
     "ExtendedArmorMaterialsMixin",
     "MagicManagerMixin",
     "UpgradeTypesMixin"

@@ -1,5 +1,6 @@
 package de.totodev.spellbooktweaks.mixin;
 
+import io.redspace.ironsspellbooks.api.item.curios.AffinityData;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.spells.*;
 import net.minecraft.ChatFormatting;
@@ -9,9 +10,11 @@ import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import top.theillusivec4.curios.api.CuriosApi;
+
+import java.util.List;
 
 import static de.totodev.spellbooktweaks.AttributeRegistry.*;
 
@@ -29,6 +32,15 @@ public abstract class AbstractSpellMixin {
     @Shadow(remap = false)
     public abstract SchoolType getSchoolType();
 
+    @Redirect(
+            method = "getLevelFor",
+            at = @At(value = "INVOKE", target = "Ljava/util/List;size()I"),
+            remap = false
+    )
+    private int getLevelForIgnoreAffinity(List self) {
+        return 0;
+    }
+
     @Inject(
             method = "canBeCastedBy(ILio/redspace/ironsspellbooks/api/spells/CastSource;Lio/redspace/ironsspellbooks/api/magic/MagicData;Lnet/minecraft/world/entity/player/Player;)Lio/redspace/ironsspellbooks/api/spells/CastResult;",
             at = @At(value = "HEAD"),
@@ -39,6 +51,11 @@ public abstract class AbstractSpellMixin {
         String schoolName = getSchoolType().getId().getPath();
         double exactProficiency = spellbookTweaks$getSchoolProficiency(player, schoolName);
         int proficiency = (int) exactProficiency;
+
+        // Skip proficiency check when wearing a relevant affinity ring
+        if (!CuriosApi.getCuriosHelper().findCurios(player, itemStack -> AffinityData.hasAffinityData(itemStack) && AffinityData.getAffinityData(itemStack).getSpell().equals(this)).isEmpty()) {
+            return;
+        }
 
         SpellRarity spellRarity = getRarity(spellLevel);
         if (proficiency < spellRarity.getValue()) {

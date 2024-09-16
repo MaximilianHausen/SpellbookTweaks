@@ -215,4 +215,20 @@ public class ExtendedArmorMaterialsMixin {
                 new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
     }
+
+    @Redirect(
+            method = "<clinit>",
+            at = @At(value = "INVOKE", ordinal = 0, target = "Ljava/util/Map;of(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;"),
+            slice = @Slice(from = @At(value = "FIELD", target = "Lio/redspace/ironsspellbooks/item/armor/ExtendedArmorMaterials;NETHERITE_BATTLEMAGE:Lio/redspace/ironsspellbooks/item/armor/ExtendedArmorMaterials;", shift = At.Shift.BY, by = -2)),
+            remap = false
+    )
+    @Coerce
+    private static <K, V> Map<Attribute, AttributeModifier> battlemage(K k1, V v1, K k2, V v2) {
+        return Map.of(
+                de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
+                new AttributeModifier("Spell Proficiency", 0.75, AttributeModifier.Operation.ADDITION),
+                AttributeRegistry.MAX_MANA.get(),
+                new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
+        );
+    }
 }

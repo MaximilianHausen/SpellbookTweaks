@@ -8,5 +8,6 @@
   "attribute.spellbooktweaks.blood_school_proficiency": "Blood Proficiency",
   "attribute.spellbooktweaks.evocation_school_proficiency": "Evocation Proficiency",
   "attribute.spellbooktweaks.nature_school_proficiency": "Nature Proficiency",
-  "ui.spellbooktweaks.cast_error_rarity": "Not enough %s proficiency to cast %s (%s/%s)"
+  "ui.spellbooktweaks.cast_error_rarity": "Not enough %s proficiency to cast %s (%s/%s)",
+  "tooltip.spellbooktweaks.ignore_proficiency": "Allows to cast %s regardless of your spell proficiency"
 }
