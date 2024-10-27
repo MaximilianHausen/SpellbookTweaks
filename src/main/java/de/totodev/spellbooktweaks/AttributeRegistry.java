@@ -21,7 +21,7 @@ public class AttributeRegistry {
         ATTRIBUTES.register(eventBus);
     }
 
-    public static final RegistryObject<Attribute> SPELL_PROFICIENCY = ATTRIBUTES.register("spell_proficiency", () -> new RangedAttribute("attribute.spellbooktweaks.spell_proficiency", 0.0, 0.0, 4.0).setSyncable(true));
+    public static final RegistryObject<Attribute> SPELL_PROFICIENCY = ATTRIBUTES.register("spell_proficiency", () -> new RangedAttribute("attribute.spellbooktweaks.spell_proficiency", 0.0, 0.0, 9.0).setSyncable(true));
     public static final RegistryObject<Attribute> FIRE_SCHOOL_PROFICIENCY = newSchoolProficiencyAttribute("fire");
     public static final RegistryObject<Attribute> ICE_SCHOOL_PROFICIENCY = newSchoolProficiencyAttribute("ice");
     public static final RegistryObject<Attribute> LIGHTNING_SCHOOL_PROFICIENCY = newSchoolProficiencyAttribute("lightning");
@@ -48,7 +48,7 @@ public class AttributeRegistry {
 
     private static RegistryObject<Attribute> newSchoolProficiencyAttribute(String id) {
         return ATTRIBUTES.register(
-                id + "_school_proficiency", () -> new RangedAttribute("attribute.spellbooktweaks." + id + "_school_proficiency", 0.0, 0.0, 4.0).setSyncable(true)
+                id + "_school_proficiency", () -> new RangedAttribute("attribute.spellbooktweaks." + id + "_school_proficiency", 0.0, 0.0, 9.0).setSyncable(true)
         );
     }
 }

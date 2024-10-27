@@ -58,19 +58,19 @@ public abstract class AbstractSpellMixin {
         }
 
         SpellRarity spellRarity = getRarity(spellLevel);
-        if (proficiency < spellRarity.getValue()) {
+        if (proficiency < spellRarity.getValue() * 3) {
             // Format manually to remove the trailing 0 on whole numbers
             String prettyProficiency = exactProficiency == proficiency ? String.valueOf(proficiency) : String.valueOf(exactProficiency);
             cir.setReturnValue(new CastResult(
                     CastResult.Type.FAILURE,
-                    Component.translatable("ui.spellbooktweaks.cast_error_rarity", schoolName.equals("eldritch") ? "spell" : schoolName, this.getDisplayName(player), prettyProficiency, spellRarity.getValue()).withStyle(ChatFormatting.RED)
+                    Component.translatable("ui.spellbooktweaks.cast_error_rarity", schoolName.equals("eldritch") ? "spell" : schoolName, this.getDisplayName(player), prettyProficiency, spellRarity.getValue() * 3).withStyle(ChatFormatting.RED)
             ));
         }
     }
 
     @Unique
-    private double spellbookTweaks$getSchoolProficiency(Player player, String regPath) {
-        double proficiency = switch (regPath) {
+    private double spellbookTweaks$getSchoolProficiency(Player player, String schoolName) {
+        double proficiency = switch (schoolName) {
             case "fire" -> player.getAttributeValue(FIRE_SCHOOL_PROFICIENCY.get());
             case "ice" -> player.getAttributeValue(ICE_SCHOOL_PROFICIENCY.get());
             case "lightning" -> player.getAttributeValue(LIGHTNING_SCHOOL_PROFICIENCY.get());

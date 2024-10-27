@@ -29,7 +29,7 @@ public class ExtendedArmorMaterialsMixin {
     private static <K, V> Map<Attribute, AttributeModifier> tarnished(K k1, V v1, K k2, V v2, K k3, V v3) {
         return Map.of(
                 de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
-                new AttributeModifier("Spell Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Spell Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
                 new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MANA_REGEN.get(),
@@ -49,7 +49,7 @@ public class ExtendedArmorMaterialsMixin {
     private static <K, V> Map<Attribute, AttributeModifier> wanderingMagician(K k1, V v1) {
         return Map.of(
                 de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
-                new AttributeModifier("Spell Proficiency", 0.25, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Spell Proficiency", 1, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
                 new AttributeModifier("Max Mana", 25.0, AttributeModifier.Operation.ADDITION)
         );
@@ -65,7 +65,7 @@ public class ExtendedArmorMaterialsMixin {
     private static <K, V> Map<Attribute, AttributeModifier> pumpkin(K k1, V v1) {
         return Map.of(
                 de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
-                new AttributeModifier("Spell Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Spell Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
                 new AttributeModifier("Max Mana", 50.0, AttributeModifier.Operation.ADDITION)
         );
@@ -82,9 +82,9 @@ public class ExtendedArmorMaterialsMixin {
     private static <K, V> Map<Attribute, AttributeModifier> pyro(K k1, V v1, K k2, V v2, K k3, V v3) {
         return Map.of(
                 de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
-                new AttributeModifier("Spell Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Spell Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 de.totodev.spellbooktweaks.AttributeRegistry.FIRE_SCHOOL_PROFICIENCY.get(),
-                new AttributeModifier("Fire Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Fire Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
                 new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
@@ -100,9 +100,9 @@ public class ExtendedArmorMaterialsMixin {
     private static <K, V> Map<Attribute, AttributeModifier> evocation(K k1, V v1, K k2, V v2, K k3, V v3) {
         return Map.of(
                 de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
-                new AttributeModifier("Spell Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Spell Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 de.totodev.spellbooktweaks.AttributeRegistry.EVOCATION_SCHOOL_PROFICIENCY.get(),
-                new AttributeModifier("Evocation Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Evocation Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
                 new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
@@ -118,9 +118,9 @@ public class ExtendedArmorMaterialsMixin {
     private static <K, V> Map<Attribute, AttributeModifier> blood(K k1, V v1, K k2, V v2, K k3, V v3) {
         return Map.of(
                 de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
-                new AttributeModifier("Spell Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Spell Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 de.totodev.spellbooktweaks.AttributeRegistry.BLOOD_SCHOOL_PROFICIENCY.get(),
-                new AttributeModifier("Blood Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Blood Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
                 new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
@@ -136,9 +136,9 @@ public class ExtendedArmorMaterialsMixin {
     private static <K, V> Map<Attribute, AttributeModifier> holy(K k1, V v1, K k2, V v2, K k3, V v3) {
         return Map.of(
                 de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
-                new AttributeModifier("Spell Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Spell Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 de.totodev.spellbooktweaks.AttributeRegistry.HOLY_SCHOOL_PROFICIENCY.get(),
-                new AttributeModifier("Holy Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Holy Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
                 new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
@@ -154,9 +154,9 @@ public class ExtendedArmorMaterialsMixin {
     private static <K, V> Map<Attribute, AttributeModifier> ice(K k1, V v1, K k2, V v2, K k3, V v3) {
         return Map.of(
                 de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
-                new AttributeModifier("Spell Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Spell Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 de.totodev.spellbooktweaks.AttributeRegistry.ICE_SCHOOL_PROFICIENCY.get(),
-                new AttributeModifier("Ice Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Ice Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
                 new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
@@ -172,9 +172,9 @@ public class ExtendedArmorMaterialsMixin {
     private static <K, V> Map<Attribute, AttributeModifier> ender(K k1, V v1, K k2, V v2, K k3, V v3) {
         return Map.of(
                 de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
-                new AttributeModifier("Spell Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Spell Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 de.totodev.spellbooktweaks.AttributeRegistry.ENDER_SCHOOL_PROFICIENCY.get(),
-                new AttributeModifier("Ender Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Ender Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
                 new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
@@ -190,9 +190,9 @@ public class ExtendedArmorMaterialsMixin {
     private static <K, V> Map<Attribute, AttributeModifier> nature(K k1, V v1, K k2, V v2, K k3, V v3) {
         return Map.of(
                 de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
-                new AttributeModifier("Spell Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Spell Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 de.totodev.spellbooktweaks.AttributeRegistry.NATURE_SCHOOL_PROFICIENCY.get(),
-                new AttributeModifier("Nature Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Nature Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
                 new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
@@ -208,9 +208,9 @@ public class ExtendedArmorMaterialsMixin {
     private static <K, V> Map<Attribute, AttributeModifier> lightning(K k1, V v1, K k2, V v2, K k3, V v3) {
         return Map.of(
                 de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
-                new AttributeModifier("Spell Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Spell Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 de.totodev.spellbooktweaks.AttributeRegistry.LIGHTNING_SCHOOL_PROFICIENCY.get(),
-                new AttributeModifier("Lightning Proficiency", 0.5, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Lightning Proficiency", 2, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
                 new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
@@ -226,7 +226,7 @@ public class ExtendedArmorMaterialsMixin {
     private static <K, V> Map<Attribute, AttributeModifier> battlemage(K k1, V v1, K k2, V v2) {
         return Map.of(
                 de.totodev.spellbooktweaks.AttributeRegistry.SPELL_PROFICIENCY.get(),
-                new AttributeModifier("Spell Proficiency", 0.75, AttributeModifier.Operation.ADDITION),
+                new AttributeModifier("Spell Proficiency", 3, AttributeModifier.Operation.ADDITION),
                 AttributeRegistry.MAX_MANA.get(),
                 new AttributeModifier("Max Mana", 100.0, AttributeModifier.Operation.ADDITION)
         );
